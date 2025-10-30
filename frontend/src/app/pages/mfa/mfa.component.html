@@ -1,0 +1,21 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Recovery codes</h1>
+
+  <div class="form-signin">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let code of recoveryCodes">
+        {{ code }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="input-group mb-3">
+    <input #code type="text" class="form-control" placeholder="Enter code" />
+    <div class="input-group-append">
+      <button class="btn btn-success" type="submit" (click)="verifyRecoveryOtp(code.value)">Verify</button>
+    </div>
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    {{ errorMessage }}
+  </div>
+</div>

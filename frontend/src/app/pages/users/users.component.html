@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>User Management</h1>
+
+
+
+  <div class="mb-3">
+    <a routerLink="/register" class="btn btn-warning"><i class="fas fa-user-plus"> Register New User </i></a>
+  </div>
+
+
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>isAdmin</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button class="btn {{ user.is_admin ? 'bg-success' : 'bg-danger' }}">{{ user.is_admin ? 'Yes' : 'No'  }}</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="removeUser(user.id)"><i class="fas fa-trash-alt"> Remove </i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+</div>

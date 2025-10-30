@@ -1,0 +1,45 @@
+<div *ngIf="!user" class="alert alert-warning text-center">
+
+
+
+
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4"> <i class="fas fa-user-lock"> Please login to continue... </i> </h1>
+  </div>
+
+
+</div>
+
+<div *ngIf="user">
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Hello: {{ user.name }}</h1>
+  </div>
+
+  <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">ID: {{ user.id }}</h4>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Username: {{ user.username }}</li>
+            <li>Email: {{ user.email }}</li>
+            <li>Is Admin: <span class="badge {{ user.is_admin ? 'bg-success' : 'bg-danger' }}">{{ user.is_admin }}</span></li>
+            <li>Created At: {{ user.created_at }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <div class="btn-group">
+        <a routerLink="/profile/change-information" type="button" class="btn btn-warning"><i class="fas fa-user-edit"> Change Information </i></a>
+      </div>
+
+      <div class="btn-group">
+        <a routerLink="/profile/change-password" type="button" class="btn btn-danger"><i class="fas fa-key"> Change Password </i></a>
+      </div>
+    </div>
+  </div>
+</div>

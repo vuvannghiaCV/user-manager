@@ -1,0 +1,65 @@
+
+
+ <div class="bg-light d-flex align-items-center justify-content-center min-vh-100">
+  <div class="bg-white p-4 rounded shadow form-container">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+
+              <input formControlName="name" type="text" id="name" class="form-control" placeholder="Enter your name" required>
+          <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="text-danger">
+              Name is required.
+          </div>
+          </div>
+          <div class="form-group">
+
+              <input formControlName="age" type="number" id="age" class="form-control" placeholder="Enter your age" required>
+              <div *ngIf="form.get('age')?.invalid && form.get('age')?.touched" class="text-danger">
+                  Age is required.
+              </div>
+          </div>
+          <div class="form-group">
+
+              <input formControlName="username" type="text" id="username" class="form-control" placeholder="Enter your username" required>
+          <div *ngIf="form.get('username')?.invalid && form.get('username')?.touched" class="text-danger">
+              Username is required.
+          </div>
+          </div>
+
+          <div class="form-group">
+
+              <input formControlName="email" type="email" id="email" class="form-control" placeholder="Enter your email" required>
+              <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-danger">
+                  Email is required.
+              </div>
+          </div>
+
+
+          <div class="form-group">
+
+              <input formControlName="password" type="password" id="password" class="form-control" placeholder="Enter your password" required>
+          </div>
+
+
+          <div class="form-group">
+
+              <input formControlName="password_confirm" type="password" id="password_confirm" class="form-control" placeholder="Enter your password confirm" required>
+          </div>
+
+          <div class="form-group">
+            <select formControlName="is_admin" class="form-control" placeholder="Is Admin">
+
+            <option value="true">is role admin</option>
+            <option value="false">is not role admin</option>
+          </select>
+        </div>
+
+
+          <button type="submit" class="btn btn-warning btn-block font-weight-bold">
+              Submit
+          </button>
+        </form>
+          <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+              {{ errorMessage }}
+          </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+
+<div class="bg-light d-flex align-items-center justify-content-center min-vh-100">
+  <div class="bg-white p-4 rounded shadow form-container">
+      <h2 class="text-center font-weight-bold mb-4">Authenticator</h2>
+      <form [formGroup]="form" (ngSubmit)="verifyOtp()">
+
+
+          <div *ngIf="otp_qr_code_base64">
+              <img [src]="'data:image/png;base64,' + otp_qr_code_base64" alt="OTP QR Code"  width="256" height="256"/>
+          </div>
+
+          <div class="form-group">
+              <input formControlName="otp" type="text" id="otp" class="form-control" placeholder="Enter OTP" required>
+          <div *ngIf="form.get('otp')?.invalid && form.get('otp')?.touched" class="text-danger">
+              OTP is required.
+          </div>
+          </div>
+          <button type="submit" class="btn btn-warning btn-block font-weight-bold">
+              Verify OTP
+          </button>
+          <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+              {{ errorMessage }}
+          </div>
+      </form>
+  </div>
+</div>
